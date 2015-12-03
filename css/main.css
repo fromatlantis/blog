@@ -965,7 +965,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #db4946;
+  background: #ff4e55;
 }
 .sidebar-nav {
   margin: 0 0 20px;
@@ -1222,7 +1222,7 @@ body {
   }
   .post-body pre,
   .post-body .highlight {
-    margin: 0 -20px;
+    margin: 0 -10px;
     padding: 10px 20px;
   }
   .post-body pre .gutter pre,
