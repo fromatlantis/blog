@@ -965,7 +965,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff4e55;
+  background: #1b0fff;
 }
 .sidebar-nav {
   margin: 0 0 20px;
@@ -1219,6 +1219,15 @@ body {
 @media (max-width: 767px) {
   .posts-expand {
     margin: 0 20px;
+  }
+  .posts-expand .post-meta {
+    margin: 3px 0 20px 0 !important;
+  }
+  .posts-expand .post-eof {
+    margin: 0 auto 50px !important;
+  }
+  .header-inner {
+    padding: 100px 0 0px;
   }
   .post-body pre,
   .post-body .highlight {
