@@ -229,6 +229,110 @@
             
               
                 
+                <a class="post-title-link" href="/2015/12/07/token和权限处理/" itemprop="url">
+                  token和权限处理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-07T00:01:41+08:00" content="2015-12-07">
+              2015-12-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/07/token和权限处理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/07/token和权限处理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>// 过滤所有的json请求，返回code和对应关系如下：<br>// - 200: 正常<br>// - 403: 没有权限，跳转到权限页面<br>// - 402: 没有登录过，跳转到登录页面<br>// - 401: 需要信息不全，弹出信息不全的弹窗页面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">  var accountShown = <span class="literal">false</span>;</span><br><span class="line">  jQuery.ajaxPrefilter(<span class="string">"json"</span>, <span class="keyword">function</span>(options, originalOptions, jqXHR) &#123;</span><br><span class="line">     options.dataFilter = <span class="keyword">function</span>(data) &#123;</span><br><span class="line">      var obj = jQuery.parseJSON(data);</span><br><span class="line">      var code = obj.code;</span><br><span class="line">      <span class="keyword">if</span> (code == <span class="number">403</span>) &#123;</span><br><span class="line">        window.location.href = <span class="string">'/nopermission.html'</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (code == <span class="number">402</span>) &#123;</span><br><span class="line">        window.location.href = <span class="string">'/login.html'</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (code == <span class="number">401</span>) &#123;</span><br><span class="line">        // 如果已经弹窗过，则不弹了</span><br><span class="line">        <span class="keyword">if</span> (accountShown) &#123;</span><br><span class="line">          <span class="built_in">return</span> data;</span><br><span class="line">        &#125;</span><br><span class="line">        accountShown = <span class="literal">true</span>;</span><br><span class="line">        $.realready();</span><br><span class="line">        // 初始化信息补全弹窗</span><br><span class="line">        $.getScript(<span class="string">'/Scripts/AccountFill.js'</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">return</span> data;</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>// 加入防止CSRF token的代码
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/07/token和权限处理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/04/CSS3带箭头div/" itemprop="url">
                   CSS3带箭头div
                 </a>
@@ -663,7 +767,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
